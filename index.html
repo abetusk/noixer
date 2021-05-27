@@ -1,0 +1,98 @@
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<html>
+
+  <head>
+    <!--
+    License: cc0
+    -->
+
+    <link rel='stylesheet' href='css/paramui.css'>
+    <link rel='stylesheet' href='css/pure-min.css'>
+    <link rel='stylesheet' href='css/jquery-ui.css'>
+
+    <script src='js/jquery.js'></script>
+    <script src='js/jquery-ui.js'></script>
+    <script src='js/noixer.js'></script>
+
+  </head>
+
+  <script>
+    function _click() {
+      console.log("_click");
+    }
+  </script>
+
+  <body>
+
+  <br>
+    <div class='pure-g rowH'>
+
+      <div class='pure-u-1-4 col'> </div>
+
+      <div class='pure-u-1-2 col'>
+        <span style='font-size:3em; font-weight:bold; color:#555555;'>Noixer</span>
+        <br>
+        <small>An ambient noise mixer</small>
+      </div>
+
+      <div class='pure-u-1-4 col'>
+        <button class='bdropinp bkey' id='ui_generate' onclick='_stop_all();'>stop all</button>
+      </div>
+
+
+    </div>
+
+    <!-- -->
+
+    <hr class='style12'>
+
+    <div id='ui_container'></div>
+    <div id='ui_sounds'></div>
+
+    <hr class='style12'>
+
+    <!-- -->
+
+    <div class='pure-g rowH'>
+      <div class='pure-u-1-4 col'> </div>
+      <div class='pure-u-1-2 col'>
+        <span style='font-size:3em; font-weight:bold; color:#555555;'>Presets</span>
+      </div>
+      <div class='pure-u-1-4 col'> </div>
+    </div>
+
+    <div id='ui_preset'></div>
+
+    <hr class='style12'>
+
+    <!-- -->
+
+    <div class='pure-g row'> </div>
+
+    <div class='pure-g rowM'>
+      <div class='pure-u-1-3 col'></div>
+      <div class='pure-u-1-3 col'>
+        Source for this web page is released to the public domain (CC0) and can be found on <a href='https://github.com/abetusk/noixer'>GitHub</a>.
+      </div>
+      <div class='pure-u-1-3 col'></div>
+    </div>
+
+    <div class='pure-g rowM'>
+      <div class='pure-u-1-3 col'></div>
+      <div class='pure-u-1-3 col'>
+        All sounds come from <a href='https://freesound.org'>Freesound.org</a> and are public domain (CC0).
+      </div>
+      <div class='pure-u-1-3 col'></div>
+    </div>
+
+    <hr class='style12'>
+
+  </body>
+
+  <script>
+    noixer_init();
+  </script>
+
+</html>
+
