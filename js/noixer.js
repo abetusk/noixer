@@ -465,8 +465,14 @@ function _create_preset_string() {
 
 function _sound_play(ui_id) {
   var ele = document.getElementById(ui_id);
-  ele.play();
-  ele.loop = true;
+
+  if (ele.readyState == 4) {
+    ele.play();
+    ele.loop = true;
+  }
+  else {
+    setTimeout( function() { console.log("..."); _sound_play(ui_id); }, 250 );
+  }
 }
 
 function _sound_stop(ui_id) {
