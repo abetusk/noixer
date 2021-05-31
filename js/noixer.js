@@ -21,7 +21,10 @@ var noixer_info = {
 		"273643__sanctuarymuch__ethereal-voices",
 		"530715__jjbbllkk__rmr-morphagene-reels-choirs-02",
 		"521549__buddhassoundofsilence__singing-bowl-deep-sound",
-		"320351__guardian2433__police-radio-chatter"
+		"320351__guardian2433__police-radio-chatter",
+    "133099__allh__steam-train-interior_e",
+    "260105__joshs__train",
+    "324404__joedeshon__film-static-03"
 	],
 
   "sound" : {
@@ -44,11 +47,38 @@ var noixer_info = {
       "volume": 1.0
     },
 
+    "450755__florianreichelt__waves-of-hawaii" : {
+      "ui_id": "audio2",
+      "id" : "450755__florianreichelt__waves-of-hawaii",
+      "location" : "assets/450755__florianreichelt__waves-of-hawaii.mp3",
+      "tag" : [ "waves" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
     "32655__greysound__frogsandcrickets-excerptb-jma-24bit-48k": {
       "ui_id": "audio3",
       "id" : "32655__greysound__frogsandcrickets-excerptb-jma-24bit-48k",
       "location" : "assets/32655__greysound__frogsandcrickets-excerptb-jma-24bit-48k.mp3",
       "tag" : [ "frogs" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+    "433783__cagancelik__campfire" : {
+      "ui_id": "audio4",
+      "id" : "433783__cagancelik__campfire",
+      "location" : "assets/433783__cagancelik__campfire.mp3",
+      "tag" : [ "campfire" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+    "517042__sonidosreales245__forestday-bw-66" : {
+      "ui_id": "audio5",
+      "id" : "517042__sonidosreales245__forestday-bw-66",
+      "location" : "assets/517042__sonidosreales245__forestday-bw-66.mp3",
+      "tag" : [ "birds" ],
       "state" : "idle",
       "volume": 1.0
     },
@@ -62,66 +92,18 @@ var noixer_info = {
       "volume": 1.0
     },
 
-
-    "394290__epicwizard__bar-crowd-in-belgrade" : {
-      "ui_id": "audio5",
-      "id" : "394290__epicwizard__bar-crowd-in-belgrade",
-      "location" : "assets/394290__epicwizard__bar-crowd-in-belgrade.mp3",
-      "tag" : [ "bar" ],
-      "state" : "idle",
-      "volume": 1.0
-    },
-
-    "433783__cagancelik__campfire" : {
-      "ui_id": "audio10",
-      "id" : "433783__cagancelik__campfire",
-      "location" : "assets/433783__cagancelik__campfire.mp3",
-      "tag" : [ "campfire" ],
-      "state" : "idle",
-      "volume": 1.0
-    },
-
-
-
-
-    "197804__7778__indoor-fish-tank-without-bubble-strips-ambiance" : {
-      "ui_id": "audio2",
-      "id" : "197804__7778__indoor-fish-tank-without-bubble-strips-ambiance",
-      "location" : "assets/197804__7778__indoor-fish-tank-without-bubble-strips-ambiance.mp3",
-      "tag" : [ "fishtank" ],
-      "state" : "idle",
-      "volume": 1.0
-    },
-
-    "525052__smand__wind-chime-small.mp3" : {
-      "ui_id": "audio4",
-      "id" : "525052__smand__wind-chime-small.mp3",
-      "location" : "assets/525052__smand__wind-chime-small.mp3",
-      "tag" : [ "chimes" ],
-      "state" : "idle",
-      "volume": 1.0
-    },
-
-    "521549__buddhassoundofsilence__singing-bowl-deep-sound" : {
+    "501115__felix-blume__peal-of-church-bells-on-sunday-in-paris" : {
       "ui_id": "audio7",
-      "id" : "521549__buddhassoundofsilence__singing-bowl-deep-sound",
-      "location" : "assets/521549__buddhassoundofsilence__singing-bowl-deep-sound.mp3",
-      "tag" : [ "bowl" ],
+      "id" : "501115__felix-blume__peal-of-church-bells-on-sunday-in-paris",
+      "location" : "assets/501115__felix-blume__peal-of-church-bells-on-sunday-in-paris.mp3",
+      "tag" : [ "church", "bells" ],
       "state" : "idle",
       "volume": 1.0
     },
 
-    "273643__sanctuarymuch__ethereal-voices" : {
-      "ui_id": "audio9",
-      "id" : "273643__sanctuarymuch__ethereal-voices",
-      "location" : "assets/273643__sanctuarymuch__ethereal-voices.mp3",
-      "tag" : [ "voice" ],
-      "state" : "idle",
-      "volume": 1.0
-    },
 
     "60956__muvee69__int-subway-station" : {
-      "ui_id": "audio11",
+      "ui_id": "audio8",
       "id" : "60956__muvee69__int-subway-station",
       "location" : "assets/60956__muvee69__int-subway-station.mp3",
       "tag" : [ "subway" ],
@@ -129,11 +111,39 @@ var noixer_info = {
       "volume": 1.0
     },
 
-    "450755__florianreichelt__waves-of-hawaii" : {
+    "525052__smand__wind-chime-small.mp3" : {
+      "ui_id": "audio9",
+      "id" : "525052__smand__wind-chime-small.mp3",
+      "location" : "assets/525052__smand__wind-chime-small.mp3",
+      "tag" : [ "chimes" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+    "448378__keng-wai-chane-chick-te__city-brussels-street-morning" : {
+      "ui_id": "audio10",
+      "id" : "448378__keng-wai-chane-chick-te__city-brussels-street-morning",
+      "location" : "assets/448378__keng-wai-chane-chick-te__city-brussels-street-morning.mp3",
+      "tag" : [ "city" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+
+    "394290__epicwizard__bar-crowd-in-belgrade" : {
+      "ui_id": "audio11",
+      "id" : "394290__epicwizard__bar-crowd-in-belgrade",
+      "location" : "assets/394290__epicwizard__bar-crowd-in-belgrade.mp3",
+      "tag" : [ "bar" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+    "197804__7778__indoor-fish-tank-without-bubble-strips-ambiance" : {
       "ui_id": "audio12",
-      "id" : "450755__florianreichelt__waves-of-hawaii",
-      "location" : "assets/450755__florianreichelt__waves-of-hawaii.mp3",
-      "tag" : [ "waves" ],
+      "id" : "197804__7778__indoor-fish-tank-without-bubble-strips-ambiance",
+      "location" : "assets/197804__7778__indoor-fish-tank-without-bubble-strips-ambiance.mp3",
+      "tag" : [ "fishtank" ],
       "state" : "idle",
       "volume": 1.0
     },
@@ -147,17 +157,8 @@ var noixer_info = {
       "volume": 1.0
     },
 
-    "517042__sonidosreales245__forestday-bw-66" : {
-      "ui_id": "audio14",
-      "id" : "517042__sonidosreales245__forestday-bw-66",
-      "location" : "assets/517042__sonidosreales245__forestday-bw-66.mp3",
-      "tag" : [ "birds" ],
-      "state" : "idle",
-      "volume": 1.0
-    },
-
     "345029__3bagbrew__evening-call-to-prayer" : {
-      "ui_id": "audio15",
+      "ui_id": "audio14",
       "id" : "345029__3bagbrew__evening-call-to-prayer",
       "location" : "assets/345029__3bagbrew__evening-call-to-prayer.mp3",
       "tag" : [ "prayer" ],
@@ -165,20 +166,30 @@ var noixer_info = {
       "volume": 1.0
     },
 
-    "448378__keng-wai-chane-chick-te__city-brussels-street-morning" : {
-      "ui_id": "audio16",
-      "id" : "448378__keng-wai-chane-chick-te__city-brussels-street-morning",
-      "location" : "assets/448378__keng-wai-chane-chick-te__city-brussels-street-morning.mp3",
-      "tag" : [ "city" ],
+    "273643__sanctuarymuch__ethereal-voices" : {
+      "ui_id": "audio15",
+      "id" : "273643__sanctuarymuch__ethereal-voices",
+      "location" : "assets/273643__sanctuarymuch__ethereal-voices.mp3",
+      "tag" : [ "voice" ],
       "state" : "idle",
       "volume": 1.0
     },
 
     "530715__jjbbllkk__rmr-morphagene-reels-choirs-02" : {
-      "ui_id": "audio17",
+      "ui_id": "audio16",
       "id" : "530715__jjbbllkk__rmr-morphagene-reels-choirs-02",
       "location" : "assets/530715__jjbbllkk__rmr-morphagene-reels-choirs-02.mp3",
       "tag" : [ "choir" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+
+    "521549__buddhassoundofsilence__singing-bowl-deep-sound" : {
+      "ui_id": "audio17",
+      "id" : "521549__buddhassoundofsilence__singing-bowl-deep-sound",
+      "location" : "assets/521549__buddhassoundofsilence__singing-bowl-deep-sound.mp3",
+      "tag" : [ "bowl" ],
       "state" : "idle",
       "volume": 1.0
     },
@@ -192,11 +203,29 @@ var noixer_info = {
       "volume": 1.0
     },
 
-    "501115__felix-blume__peal-of-church-bells-on-sunday-in-paris" : {
+    "133099__allh__steam-train-interior_e" : {
       "ui_id": "audio19",
-      "id" : "501115__felix-blume__peal-of-church-bells-on-sunday-in-paris",
-      "location" : "assets/501115__felix-blume__peal-of-church-bells-on-sunday-in-paris.mp3",
-      "tag" : [ "church", "bells" ],
+      "id" : "133099__allh__steam-train-interior_e",
+      "location" : "assets/133099__allh__steam-train-interior_e.mp3",
+      "tag" : [ "passenger", "coach" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+    "260105__joshs__train" : {
+      "ui_id": "audio20",
+      "id" : "260105__joshs__train",
+      "location" : "assets/260105__joshs__train.mp3",
+      "tag" : [ "train", "horn" ],
+      "state" : "idle",
+      "volume": 1.0
+    },
+
+    "324404__joedeshon__film-static-03" : {
+      "ui_id": "audio21",
+      "id" : "324404__joedeshon__film-static-03",
+      "location" : "assets/324404__joedeshon__film-static-03.mp3",
+      "tag" : [ "film", "static" ],
       "state" : "idle",
       "volume": 1.0
     }
@@ -263,7 +292,175 @@ var noixer_info = {
 
   },
 
+  "custom_preset": "",
+
   "ui_id":{ }
+}
+
+
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+};
+
+function guid() {
+  return s4() + s4() + '-' +
+         s4() + '-' +
+         s4() + '-' +
+         s4() + '-' + s4() + s4() + s4();
+}
+
+
+function _tohex(n, _len) {
+  var s = n.toString(16);
+  if (typeof _len !== "undefined") {
+    if (s.length < _len) {
+      var _dn = (_len - s.length);
+      for (var ii=0; ii<_dn; ii++) {
+        s = "0" + s;
+      }
+    }
+  }
+  return s;
+}
+
+function _unencode(_s) {
+  var _res = "";
+  for (var ii=0; ii<_s.length; ii+=2) {
+    if ((ii+1)>=(_s.length)) { continue; }
+    var a = parseInt(_s[ii], 16);
+    var b = parseInt(_s[ii+1], 16);
+
+    var u = a*16 + b;
+    if ((u<32) || (u>128)) { continue; }
+
+    _res += String.fromCharCode(u);
+  }
+
+  return _res;
+}
+
+function _custom_preset_ui_append(ui_id, _name, enc_volume) {
+  var div_ele = document.getElementById("ui_custom_preset.list");
+
+  var _name_u = _unencode(_name);
+  var _name_str = _name_u.replace(/([^ a-zA-Z_-]*)/g, '');
+
+  var _row = document.createElement("div");
+  _row.classList.add("pure-g");
+  _row.classList.add("row");
+
+  var _col0 = document.createElement("div");
+  _col0.classList.add("pure-u-2-3");
+  _col0.classList.add("col");
+  _col0.setAttribute("style", "margin:auto;");
+
+  var _span0 = document.createElement("span");
+  _span0.setAttribute("style", "margin:auto; font-size:1.5em; font-weight:bold; vertical-align:center; color:#555;");
+  _span0.innerHTML = _name_str;
+
+  var _col1 = document.createElement("div");
+  _col1.classList.add("pure-u-1-3");
+  _col1.classList.add("col");
+
+  var _button1 = document.createElement("button");
+  _button1.classList.add("bdropinp");
+  _button1.classList.add("bkey");
+  _button1.onclick = (function(x) { return function() { _load_preset_string(x); }; })(enc_volume);
+  _button1.innerHTML = "load";
+
+  _col0.appendChild(_span0);
+  _col1.appendChild(_button1);
+  _row.appendChild(_col0);
+  _row.appendChild(_col1);
+  div_ele.appendChild(_row);
+
+}
+
+function _custom_preset_ui_clear(xx) {
+  var div_ele = document.getElementById("ui_custom_preset.list");
+
+  div_ele.innerHTML = "";
+  noixer_info.custom_preset = "";
+  localStorage.setItem("custom_preset", "");
+}
+
+function _custom_preset_ui_save() {
+  var name_val = document.getElementById('ui_custom_preset.name').value;
+  var preset_str = _create_preset_string();
+
+  var name_val_enc = "";
+  for (var ii=0; ii<name_val.length; ii++) {
+    name_val_enc += _tohex(name_val.charCodeAt(ii), 2);
+  }
+
+  var fin = name_val_enc + "#" + preset_str;
+
+  if (noixer_info.custom_preset.length > 0) {
+    noixer_info.custom_preset += ";";
+  }
+  noixer_info.custom_preset += fin;
+
+  localStorage.setItem("custom_preset", noixer_info.custom_preset);
+
+  _custom_preset_ui_append(guid(), name_val_enc, preset_str);
+
+  history.replaceState(null, 'noixer', '?preset=' + preset_str);
+
+  return fin;
+}
+
+function _load_preset_string(_preset_str) {
+
+  _stop_all();
+
+  if (_preset_str.length == 0) {
+    console.log("WARNING: _load_preset_string: bad _preset_str:", _preset_str);
+    return;
+  }
+
+  history.replaceState(null, 'noixer', '?preset=' + _preset_str);
+
+  var pair = _preset_str.split(":");
+  for (var idx=0; idx<pair.length; idx++) {
+    var tok = pair[idx].split("-");
+
+    var ui_id = "audio" + parseInt(tok[0], 16).toString();
+    var vol   = parseInt(tok[1], 16)/256.0;
+
+    _sound_volume(ui_id, vol);
+
+    var sound_info = noixer_info.ui_id[ui_id];
+
+    sound_info.state = "play";
+    _sound_play(ui_id);
+    _ui_toggle(ui_id + ".toggle", "play");
+
+  }
+
+}
+
+function _create_preset_string() {
+  var snd = noixer_info.sound;
+
+  var preset_str = "";
+  for (var snd_key in snd) {
+    var sound_info = snd[snd_key];
+    if (sound_info.state != "play") { continue; }
+
+    var ui_int_id = parseInt(sound_info.ui_id.replace('audio', ''));
+
+    var _aid = _tohex(ui_int_id, 2);
+    var _vol = _tohex(Math.floor(sound_info.volume * 255.0), 2);
+
+    if (preset_str.length > 0) {
+      preset_str += ":";
+    }
+    preset_str += _aid + "-" +  _vol;
+  }
+
+  return preset_str;
 }
 
 function _sound_play(ui_id) {
@@ -280,6 +477,9 @@ function _sound_stop(ui_id) {
 function _sound_volume(ui_id, vol) {
   var ele = document.getElementById(ui_id);
   ele.volume = vol;
+
+  var sound_info = noixer_info.ui_id[ui_id];
+  sound_info.volume = vol;
 }
 
 function _ui_toggle(ui_id, state) {
@@ -323,7 +523,6 @@ function _click_change(ui_id) {
     if ((_noix_data.state == "idle") || (_noix_data.state == "stop")) {
       _noix_data.state = "play";
       _sound_play(_id);
-
       _ui_toggle(ui_id, "play");
     }
     else if (_noix_data.state == "play") {
@@ -366,8 +565,6 @@ function testplay() {
 }
 
 function _preset_load(preset_id) {
-  console.log("preset", preset_id);
-
   var preset_info = noixer_info.preset[preset_id];
 
   if (typeof preset_info === "undefined") {
@@ -533,6 +730,40 @@ function noixer_ui_setup() {
 
     ui_container.appendChild(_divrow);
 
+  }
+
+
+  // setup custom presets from localstorage
+  //
+  var custom_preset_data = localStorage.getItem("custom_preset");
+  if ((custom_preset_data !== null) &&
+      (typeof custom_preset_data !== "undefined") &&
+      (custom_preset_data.length > 0)) {
+    noixer_info.custom_preset = custom_preset_data;
+
+    var _preset_str = custom_preset_data.split(";");
+    for (var ii=0; ii<_preset_str.length; ii++) {
+      var name_dat = _preset_str[ii].split("#");
+      if (name_dat.length != 2) { continue; }
+      var _name = name_dat[0];
+      var _dat = name_dat[1];
+
+      _custom_preset_ui_append(guid(), _name, _dat);
+    }
+
+  }
+
+  var url_tok = window.location.href.split("?");
+  if (url_tok.length > 1)  {
+    var tok = url_tok[1].split("&");
+    for (var ii=0; ii<tok.length; ii++) {
+      var kv = tok[ii].split("=");
+      if (kv.length != 2) { continue; }
+      if (kv[0] == "preset") {
+        _load_preset_string(kv[1]);
+        break;
+      }
+    }
   }
 
 }

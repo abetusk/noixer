@@ -46,6 +46,9 @@ Sounds were chosen to be under a CC0 (public domain) license from [Freesound.org
 | choir | jjbbllkk | [link](https://freesound.org/people/jjbbllkk/sounds/530715) |
 | bowl | buddhassoundofsilence | [link](https://freesound.org/people/buddhassoundofsilence/sounds/521549) |
 | police scanner | guardian2433 | [link](https://freesound.org/people/guardian2433/sounds/320351) |
+| passenger coach scanner | allh | [link](https://freesound.org/people/allh/sounds/133099) |
+| train horn | joshs | [link](https://freesound.org/people/joshs/sounds/260105) |
+| film static | joedeshon | [link](https://freesound.org/people/joedeshon/sounds/324404) |
 
 License
 ---
