@@ -16,8 +16,6 @@ Possible additional sounds to add:
 * crunching chips
 * vinyl noise (pops and hisses)
 * writing a letter
-* train
-* film static
 * radio
 
 Credits
