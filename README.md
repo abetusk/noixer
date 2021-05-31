@@ -1,4 +1,4 @@
-[noixer](https://abetusk.github.io/noixer)
+[Noixer](https://abetusk.github.io/noixer)
 ===
 
 | |
