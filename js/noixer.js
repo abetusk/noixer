@@ -759,6 +759,10 @@ function noixer_ui_setup() {
 
   }
 
+}
+
+function _load_preset() {
+
   var url_tok = window.location.href.split("?");
   if (url_tok.length > 1)  {
     var tok = url_tok[1].split("&");
@@ -770,6 +774,9 @@ function noixer_ui_setup() {
         break;
       }
     }
+  }
+  else {
+    console.log("no preset loaded (no preset in url)");
   }
 
 }
