@@ -2,6 +2,12 @@
 //
 
 var noixer_info = {
+
+  "user_input": false,
+
+  "audio_ctx": {},
+  "global_gain_node": {},
+
   "sound_order" : [
 		"156049__ali-k__spring-night-rain2-evosmos-salonika-03-15-15-05",
 		"155940__ali-k__small-waterfall-pentalofos-salonika-21-33-30-04",
@@ -293,8 +299,11 @@ var noixer_info = {
   },
 
   "custom_preset": "",
+  "ui_id": {},
 
-  "ui_id":{ }
+  "audio": {},
+  "track": {},
+  "track_gain" : {}
 }
 
 
@@ -313,11 +322,11 @@ function guid() {
 
 
 function _tohex(n, _len) {
-  var s = n.toString(16);
+  let s = n.toString(16);
   if (typeof _len !== "undefined") {
     if (s.length < _len) {
-      var _dn = (_len - s.length);
-      for (var ii=0; ii<_dn; ii++) {
+      let _dn = (_len - s.length);
+      for (let ii=0; ii<_dn; ii++) {
         s = "0" + s;
       }
     }
@@ -326,13 +335,13 @@ function _tohex(n, _len) {
 }
 
 function _unencode(_s) {
-  var _res = "";
-  for (var ii=0; ii<_s.length; ii+=2) {
+  let _res = "";
+  for (let ii=0; ii<_s.length; ii+=2) {
     if ((ii+1)>=(_s.length)) { continue; }
-    var a = parseInt(_s[ii], 16);
-    var b = parseInt(_s[ii+1], 16);
+    let a = parseInt(_s[ii], 16);
+    let b = parseInt(_s[ii+1], 16);
 
-    var u = a*16 + b;
+    let u = a*16 + b;
     if ((u<32) || (u>128)) { continue; }
 
     _res += String.fromCharCode(u);
@@ -341,30 +350,37 @@ function _unencode(_s) {
   return _res;
 }
 
+function input_audio_resume() {
+  if (!(noixer_info.user_input)) {
+    noixer_info.user_input=true;
+    noixer_info.audio_ctx.resume();
+  }
+}
+
 function _custom_preset_ui_append(ui_id, _name, enc_volume) {
-  var div_ele = document.getElementById("ui_custom_preset.list");
+  let div_ele = document.getElementById("ui_custom_preset.list");
 
-  var _name_u = _unencode(_name);
-  var _name_str = _name_u.replace(/([^ a-zA-Z_-]*)/g, '');
+  let _name_u = _unencode(_name);
+  let _name_str = _name_u.replace(/([^ a-zA-Z_-]*)/g, '');
 
-  var _row = document.createElement("div");
+  let _row = document.createElement("div");
   _row.classList.add("pure-g");
   _row.classList.add("row");
 
-  var _col0 = document.createElement("div");
+  let _col0 = document.createElement("div");
   _col0.classList.add("pure-u-2-3");
   _col0.classList.add("col");
   _col0.setAttribute("style", "margin:auto;");
 
-  var _span0 = document.createElement("span");
+  let _span0 = document.createElement("span");
   _span0.setAttribute("style", "margin:auto; font-size:1.5em; font-weight:bold; vertical-align:center; color:#555;");
   _span0.innerHTML = _name_str;
 
-  var _col1 = document.createElement("div");
+  let _col1 = document.createElement("div");
   _col1.classList.add("pure-u-1-3");
   _col1.classList.add("col");
 
-  var _button1 = document.createElement("button");
+  let _button1 = document.createElement("button");
   _button1.classList.add("bdropinp");
   _button1.classList.add("bkey");
   _button1.onclick = (function(x) { return function() { _load_preset_string(x); }; })(enc_volume);
@@ -379,7 +395,7 @@ function _custom_preset_ui_append(ui_id, _name, enc_volume) {
 }
 
 function _custom_preset_ui_clear(xx) {
-  var div_ele = document.getElementById("ui_custom_preset.list");
+  let div_ele = document.getElementById("ui_custom_preset.list");
 
   div_ele.innerHTML = "";
   noixer_info.custom_preset = "";
@@ -387,15 +403,15 @@ function _custom_preset_ui_clear(xx) {
 }
 
 function _custom_preset_ui_save() {
-  var name_val = document.getElementById('ui_custom_preset.name').value;
-  var preset_str = _create_preset_string();
+  let name_val = document.getElementById('ui_custom_preset.name').value;
+  let preset_str = _create_preset_string();
 
-  var name_val_enc = "";
-  for (var ii=0; ii<name_val.length; ii++) {
+  let name_val_enc = "";
+  for (let ii=0; ii<name_val.length; ii++) {
     name_val_enc += _tohex(name_val.charCodeAt(ii), 2);
   }
 
-  var fin = name_val_enc + "#" + preset_str;
+  let fin = name_val_enc + "#" + preset_str;
 
   if (noixer_info.custom_preset.length > 0) {
     noixer_info.custom_preset += ";";
@@ -422,37 +438,44 @@ function _load_preset_string(_preset_str) {
 
   history.replaceState(null, 'noixer', '?preset=' + _preset_str);
 
-  var pair = _preset_str.split(":");
-  for (var idx=0; idx<pair.length; idx++) {
-    var tok = pair[idx].split("-");
+  let pair = _preset_str.split(":");
+  for (let idx=0; idx<pair.length; idx++) {
+    let tok = pair[idx].split("-");
 
-    var ui_id = "audio" + parseInt(tok[0], 16).toString();
-    var vol   = parseInt(tok[1], 16)/256.0;
+    let ui_id = "audio" + parseInt(tok[0], 16).toString();
+    let vol   = parseInt(tok[1], 16)/256.0;
 
     _sound_volume(ui_id, vol);
 
-    var sound_info = noixer_info.ui_id[ui_id];
+    let sound_info = noixer_info.ui_id[ui_id];
 
     sound_info.state = "play";
     _sound_play(ui_id);
     _ui_toggle(ui_id + ".toggle", "play");
+
+    let ui_slider = document.getElementById( ui_id + ".volume" );
+    ui_slider.value = vol;
 
   }
 
 }
 
 function _create_preset_string() {
-  var snd = noixer_info.sound;
+  let snd = noixer_info.sound;
 
-  var preset_str = "";
-  for (var snd_key in snd) {
-    var sound_info = snd[snd_key];
+  let preset_str = "";
+  for (let snd_key in snd) {
+    let sound_info = snd[snd_key];
     if (sound_info.state != "play") { continue; }
 
-    var ui_int_id = parseInt(sound_info.ui_id.replace('audio', ''));
+    let ui_int_id = parseInt(sound_info.ui_id.replace('audio', ''));
 
-    var _aid = _tohex(ui_int_id, 2);
-    var _vol = _tohex(Math.floor(sound_info.volume * 255.0), 2);
+    let _aid = _tohex(ui_int_id, 2);
+
+    //let _vol = _tohex(Math.floor(sound_info.volume * 255.0), 2);
+    let _ui_id = snd[snd_key].ui_id;
+    let _g = noixer_info.track_gain[_ui_id];
+    let _vol = _tohex(Math.floor(_g.gain.value * 255.0), 2);
 
     if (preset_str.length > 0) {
       preset_str += ":";
@@ -464,7 +487,10 @@ function _create_preset_string() {
 }
 
 function _sound_play(ui_id) {
-  var ele = document.getElementById(ui_id);
+
+  input_audio_resume();
+
+  let ele = document.getElementById(ui_id);
 
   if (ele.readyState == 4) {
     ele.play();
@@ -476,32 +502,45 @@ function _sound_play(ui_id) {
 }
 
 function _sound_stop(ui_id) {
-  var ele = document.getElementById(ui_id);
+  input_audio_resume();
+
+  let ele = document.getElementById(ui_id);
   ele.pause();
 }
 
-function _sound_volume(ui_id, vol) {
-  var ele = document.getElementById(ui_id);
-  ele.volume = vol;
+function _sound_volume(_id, vol) {
+  input_audio_resume();
 
-  var sound_info = noixer_info.ui_id[ui_id];
-  sound_info.volume = vol;
+  let _gn = noixer_info.track_gain[_id];
+  _gn.gain.value = vol;
 }
 
-function _ui_toggle(ui_id, state) {
-  var ele = document.getElementById(ui_id);
+/*
+function __sound_volume(ui_id, vol) {
+  input_audio_resume();
 
-  if (state == "play") {
-    ele.innerHTML = "x";
-  }
-  else {
-    ele.innerHTML = "";
-  }
+  let ele = document.getElementById(ui_id);
+  ele.volume = vol;
+
+  let sound_info = noixer_info.ui_id[ui_id];
+  sound_info.volume = vol;
+}
+*/
+
+function _ui_toggle(ui_id, state) {
+  input_audio_resume();
+
+  let ele = document.getElementById(ui_id);
+
+  if (state == "play")  { ele.innerHTML = "x"; }
+  else                  { ele.innerHTML = ""; }
 }
 
 function _stop_all() {
-  for (var sound_id in noixer_info.sound) {
-    var info = noixer_info.sound[sound_id];
+  input_audio_resume();
+
+  for (let sound_id in noixer_info.sound) {
+    let info = noixer_info.sound[sound_id];
     if (typeof info.id === "undefined") { continue; }
 
     _sound_stop(info.ui_id);
@@ -512,13 +551,15 @@ function _stop_all() {
 }
 
 function _click_change(ui_id) {
-  var tok = ui_id.split(".");
+  input_audio_resume();
+
+  let tok = ui_id.split(".");
   if (tok.length < 2) { return; }
 
-  var _id = tok[0];
-  var _opt = tok[1];
+  let _id = tok[0];
+  let _opt = tok[1];
 
-  var _noix_data = noixer_info.ui_id[_id];
+  let _noix_data = noixer_info.ui_id[_id];
 
   if (typeof _noix_data === "undefined") {
     console.log("_click_change: NOT FOUND", _id);
@@ -534,7 +575,6 @@ function _click_change(ui_id) {
     else if (_noix_data.state == "play") {
       _noix_data.state = "stop";
       _sound_stop(_id);
-
       _ui_toggle(ui_id, "stop");
     }
   }
@@ -542,12 +582,14 @@ function _click_change(ui_id) {
 }
 
 function _slider_change(ui_id) {
-  var tok = ui_id.split(".");
+  input_audio_resume();
+
+  let tok = ui_id.split(".");
   if (tok.length < 2) { return; }
 
-  var _id = tok[0];
-  var _opt = tok[1];
-  var _noix_data = noixer_info.ui_id[_id];
+  let _id = tok[0];
+  let _opt = tok[1];
+  let _noix_data = noixer_info.ui_id[_id];
 
   if (typeof _noix_data === "undefined") {
     console.log("_slider_change: NOT FOUND", _id);
@@ -555,38 +597,32 @@ function _slider_change(ui_id) {
   }
 
   if (_opt == "volume") {
-    var _vol = document.getElementById(ui_id);
+    let _vol = document.getElementById(ui_id);
     _sound_volume(_id, _vol.value);
   }
 
 
 }
 
-function testplay() {
-  var tid = "156049__ali-k__spring-night-rain2-evosmos-salonika-03-15-15-05";
-  var url = noixer_info.sound[tid].location;
-
-  var audio = new Audio(url);
-  audio.play();
-}
-
 function _preset_load(preset_id) {
-  var preset_info = noixer_info.preset[preset_id];
+  input_audio_resume();
+
+  let preset_info = noixer_info.preset[preset_id];
 
   if (typeof preset_info === "undefined") {
     console.log("ERROR: no preset info found for", preset_id);
     return;
   }
 
-  var sound_info = noixer_info.sound;
+  let sound_info = noixer_info.sound;
 
   _stop_all();
 
-  for (var idx=0; idx<preset_info.value.length; idx++) {
-    var entry = preset_info.value[idx];
-    var snd_id = entry.id;
-    var volume = entry.volume;
-    var ui_id = sound_info[snd_id].ui_id;
+  for (let idx=0; idx<preset_info.value.length; idx++) {
+    let entry = preset_info.value[idx];
+    let snd_id = entry.id;
+    let volume = entry.volume;
+    let ui_id = sound_info[snd_id].ui_id;
 
     noixer_info.sound[snd_id].state = "play";
 
@@ -594,8 +630,10 @@ function _preset_load(preset_id) {
     _sound_play(ui_id);
     _sound_volume(ui_id, volume);
 
-    var ui_slider = document.getElementById( ui_id + ".volume");
+    let ui_slider = document.getElementById( ui_id + ".volume");
     ui_slider.value = volume;
+
+    console.log("volume:", volume);
   }
 }
 
@@ -603,34 +641,34 @@ function noixer_ui_setup() {
 
   // presets
   //
-  var ui_preset = document.getElementById("ui_preset");
-  for (var preset_id in noixer_info.preset) {
-    var preset_info = noixer_info.preset[preset_id];
+  let ui_preset = document.getElementById("ui_preset");
+  for (let preset_id in noixer_info.preset) {
+    let preset_info = noixer_info.preset[preset_id];
 
-    var _name = preset_info.name;
+    let _name = preset_info.name;
 
-    var ui_id = preset_id;
+    let ui_id = preset_id;
 
-    var _divrow = document.createElement("div");
+    let _divrow = document.createElement("div");
     _divrow.classList.add("pure-g");
     _divrow.classList.add("row");
 
-    var _divcol0 = document.createElement("div");
+    let _divcol0 = document.createElement("div");
     _divcol0.classList.add("pure-u-1-2");
     _divcol0.classList.add("col");
     _divcol0.setAttribute("style", "margin:auto;");
 
-    var _span0 = document.createElement("span");
+    let _span0 = document.createElement("span");
     _span0.setAttribute("style", "font-size:1.3em; font-weight:bold; color:#555;");
     _span0.innerHTML = _name;
 
     //--
 
-    var _divcol1 = document.createElement("div");
+    let _divcol1 = document.createElement("div");
     _divcol1.classList.add("pure-u-1-2");
     _divcol1.classList.add("col");
 
-    var _button1 =document.createElement("button");
+    let _button1 =document.createElement("button");
     _button1.classList.add("bdropinp");
     _button1.classList.add("bkey");
     _button1.id = ui_id + ".toggle";
@@ -654,12 +692,12 @@ function noixer_ui_setup() {
 
   // html audio elements
   //
-  var ui_sounds = document.getElementById("ui_sounds");
-  for (var sound_id in noixer_info.sound) {
-    var sound_info = noixer_info.sound[sound_id];
+  let ui_sounds = document.getElementById("ui_sounds");
+  for (let sound_id in noixer_info.sound) {
+    let sound_info = noixer_info.sound[sound_id];
     if (typeof sound_info.id === "undefined") { continue; }
 
-    var _audio = document.createElement("audio");
+    let _audio = document.createElement("audio");
     _audio.id = sound_info.ui_id;
 
     _audio.setAttribute("preload", "auto");
@@ -671,36 +709,36 @@ function noixer_ui_setup() {
   // setup controls (toggle button, slider, name)
   // for each sound
   //
-  var ui_container = document.getElementById("ui_container");
-  //for (var sound_id in noixer_info.sound) {
-  for (var idx=0; idx<noixer_info.sound_order.length; idx++) {
-    var sound_id = noixer_info.sound_order[idx];
-    var sound_info = noixer_info.sound[sound_id];
+  let ui_container = document.getElementById("ui_container");
+  //for (let sound_id in noixer_info.sound) {
+  for (let idx=0; idx<noixer_info.sound_order.length; idx++) {
+    let sound_id = noixer_info.sound_order[idx];
+    let sound_info = noixer_info.sound[sound_id];
     if (typeof sound_info.id === "undefined") { continue; }
 
-    var ui_id = sound_info.ui_id;
+    let ui_id = sound_info.ui_id;
 
-    var _divrow = document.createElement("div");
+    let _divrow = document.createElement("div");
     _divrow.classList.add("pure-g");
     _divrow.classList.add("row");
 
-    var _divcol0 = document.createElement("div");
+    let _divcol0 = document.createElement("div");
     _divcol0.classList.add("pure-u-1-4");
     _divcol0.classList.add("col");
     _divcol0.setAttribute("style", "margin:auto;");
 
-    var _span0 = document.createElement("span");
+    let _span0 = document.createElement("span");
     _span0.setAttribute("style", "font-size:1.3em; font-weight:bold; color:#555;");
     _span0.innerHTML = sound_info.tag.join(" ");
 
     //---
 
-    var _divcol1 = document.createElement("div");
+    let _divcol1 = document.createElement("div");
     _divcol1.classList.add("pure-u-1-4");
     _divcol1.classList.add("col");
     //_divcol1.setAttribute("style", "margin-top:3vh;");
 
-    var _button1 =document.createElement("button");
+    let _button1 =document.createElement("button");
     _button1.classList.add("bdropinp");
     _button1.classList.add("bkey");
     _button1.id = ui_id + ".toggle";
@@ -708,12 +746,12 @@ function noixer_ui_setup() {
  
     //--
 
-    var _divcol2 = document.createElement("div");
+    let _divcol2 = document.createElement("div");
     _divcol2.classList.add("pure-u-1-2");
     _divcol2.classList.add("col");
     _divcol2.setAttribute("style", "margin-top:17px;");
 
-    var _input2 = document.createElement("input");
+    let _input2 = document.createElement("input");
     _input2.id = ui_id + ".volume";
     _input2.setAttribute("type", "range");
     _input2.setAttribute("value", "1.0");
@@ -741,33 +779,40 @@ function noixer_ui_setup() {
 
   // setup custom presets from localstorage
   //
-  var custom_preset_data = localStorage.getItem("custom_preset");
+  let custom_preset_data = localStorage.getItem("custom_preset");
   if ((custom_preset_data !== null) &&
       (typeof custom_preset_data !== "undefined") &&
       (custom_preset_data.length > 0)) {
     noixer_info.custom_preset = custom_preset_data;
 
-    var _preset_str = custom_preset_data.split(";");
-    for (var ii=0; ii<_preset_str.length; ii++) {
-      var name_dat = _preset_str[ii].split("#");
+    let _preset_str = custom_preset_data.split(";");
+    for (let ii=0; ii<_preset_str.length; ii++) {
+      let name_dat = _preset_str[ii].split("#");
       if (name_dat.length != 2) { continue; }
-      var _name = name_dat[0];
-      var _dat = name_dat[1];
+      let _name = name_dat[0];
+      let _dat = name_dat[1];
 
       _custom_preset_ui_append(guid(), _name, _dat);
     }
 
   }
 
+  let global_gain_slider = document.getElementById("gain.volume");
+  global_gain_slider.onchange = (function(x) { return function() { _slider_change(x + ".volume"); }; })("gain");
+  global_gain_slider.oninput = (function(x) { return function() { _slider_change(x + ".volume"); }; })("gain");
+
+
+
+
 }
 
 function _load_preset() {
 
-  var url_tok = window.location.href.split("?");
+  let url_tok = window.location.href.split("?");
   if (url_tok.length > 1)  {
-    var tok = url_tok[1].split("&");
-    for (var ii=0; ii<tok.length; ii++) {
-      var kv = tok[ii].split("=");
+    let tok = url_tok[1].split("&");
+    for (let ii=0; ii<tok.length; ii++) {
+      let kv = tok[ii].split("=");
       if (kv.length != 2) { continue; }
       if (kv[0] == "preset") {
         _load_preset_string(kv[1]);
@@ -783,17 +828,43 @@ function _load_preset() {
 
 function noixer_init() {
 
-  for (var key in noixer_info.sound) {
+  for (let key in noixer_info.sound) {
     if (key.length == 0) { continue; }
-    var _noix_data = noixer_info.sound[key];
-    var ui_id = _noix_data.ui_id;
+    let _noix_data = noixer_info.sound[key];
+    let ui_id = _noix_data.ui_id;
     noixer_info.ui_id[ui_id] = _noix_data;
   }
 
   noixer_ui_setup();
 
+
+  // ------
+  // experimental
+  //
+
+  noixer_info.audio_ctx = new AudioContext();
+  noixer_info.global_gain_node = new GainNode(noixer_info.audio_ctx);
+  noixer_info.track_gain["gain"] = noixer_info.global_gain_node;
+  noixer_info.ui_id["gain"] = {"info":"filler" };
+
+  let audio_ctx = noixer_info.audio_ctx;
+  let global_gain_node = noixer_info.global_gain_node;
+
+  for (let key in noixer_info.sound) {
+    if (key.length == 0) { continue; }
+    let ui_id = noixer_info.sound[key].ui_id;
+    let track_ele = document.getElementById(ui_id);
+
+    let track_gain_node = new GainNode(audio_ctx);
+    let track_node = new MediaElementAudioSourceNode(audio_ctx, {"mediaElement" : track_ele });
+
+    track_node.connect(track_gain_node).connect(global_gain_node).connect(audio_ctx.destination);
+
+    noixer_info.audio[ui_id] = track_ele;
+    noixer_info.track[ui_id] = track_node;
+    noixer_info.track_gain[ui_id] = track_gain_node;
+
+  }
+
 }
-
-
-
 
