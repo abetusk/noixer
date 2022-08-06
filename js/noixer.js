@@ -8,6 +8,8 @@ var noixer_info = {
   "audio_ctx": {},
   "global_gain_node": {},
 
+  "random_n" : 2,
+
   "sound_order" : [
 		"156049__ali-k__spring-night-rain2-evosmos-salonika-03-15-15-05",
 		"155940__ali-k__small-waterfall-pentalofos-salonika-21-33-30-04",
@@ -801,8 +803,7 @@ function noixer_ui_setup() {
   global_gain_slider.onchange = (function(x) { return function() { _slider_change(x + ".volume"); }; })("gain");
   global_gain_slider.oninput = (function(x) { return function() { _slider_change(x + ".volume"); }; })("gain");
 
-
-
+  _random_n_ui_update();
 
 }
 
@@ -825,6 +826,66 @@ function _load_preset() {
   }
 
 }
+
+//----
+
+
+function _random_inc() {
+  noixer_info.random_n++;
+  if (noixer_info.random_n>=noixer_info.sound_order.length) {
+    noixer_info.random_n = noixer_info.sound_order.length;
+  }
+  _random_n_ui_update();
+}
+
+function _random_dec() {
+  noixer_info.random_n--;
+  if (noixer_info.random_n<1) {
+    noixer_info.random_n = 1;
+  }
+  _random_n_ui_update();
+}
+
+function _random_n_ui_update() {
+  let ele = document.getElementById("ui_random_n");
+  ele.innerHTML = "rand " + noixer_info.random_n.toString();
+}
+
+function fisher_yates_shuffle(a) {
+  var t, n = a.length;
+  for (var i=0; i<(n-1); i++) {
+    var idx = i + Math.floor(Math.random()*(n-i));
+    t = a[i];
+    a[i] = a[idx];
+    a[idx] = t;
+  }
+}
+
+function _random_n() {
+  _stop_all();
+
+  let _n = noixer_info.random_n;
+  let _snd_id = [];
+
+  for (let i=0; i<noixer_info.sound_order.length; i++) {
+    _snd_id.push( noixer_info.sound_order[i] );
+  }
+
+  fisher_yates_shuffle(_snd_id);
+
+  for (let i=0; i<_n; i++) {
+    let _snd = noixer_info.sound[ _snd_id[i] ];
+    let _ui_id = _snd.ui_id;
+
+    _snd.state = "play";
+    _sound_play( _snd.ui_id );
+    _ui_toggle(_ui_id + ".toggle", "play");
+  }
+ 
+}
+
+
+//----
 
 function noixer_init() {
 
