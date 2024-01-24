@@ -20,7 +20,7 @@ var noixer_info = {
 		"252645__yetcop__cat-purr-gato-ronroneando",
 		"501115__felix-blume__peal-of-church-bells-on-sunday-in-paris",
 		"60956__muvee69__int-subway-station",
-		"525052__smand__wind-chime-small.mp3",
+		"525052__smand__wind-chime-small",
 		"448378__keng-wai-chane-chick-te__city-brussels-street-morning",
 		"394290__epicwizard__bar-crowd-in-belgrade",
 		"197804__7778__indoor-fish-tank-without-bubble-strips-ambiance",
@@ -32,7 +32,16 @@ var noixer_info = {
 		"320351__guardian2433__police-radio-chatter",
     "133099__allh__steam-train-interior_e",
     "260105__joshs__train",
-    "324404__joedeshon__film-static-03"
+    "324404__joedeshon__film-static-03",
+
+    "399603__dustin_davis__typing",
+    "585463__guiller1220__20-crispetas_s",
+    "551997__legnalegna55__eating-sound-asmr-crunchy-sound",
+    "707733__lizelle__eating-chips",
+    "564037__siteflight__drink-slurping-sound-from-a-cup",
+    "688692__digitalartsma__drawing-on-paper-with-coal"
+ 
+
 	],
 
   "sound" : {
@@ -119,9 +128,9 @@ var noixer_info = {
       "volume": 1.0
     },
 
-    "525052__smand__wind-chime-small.mp3" : {
+    "525052__smand__wind-chime-small" : {
       "ui_id": "audio9",
-      "id" : "525052__smand__wind-chime-small.mp3",
+      "id" : "525052__smand__wind-chime-small",
       "location" : "assets/525052__smand__wind-chime-small.mp3",
       "tag" : [ "chimes" ],
       "state" : "idle",
@@ -236,7 +245,64 @@ var noixer_info = {
       "tag" : [ "film", "static" ],
       "state" : "idle",
       "volume": 1.0
+    },
+
+    //--
+
+    "399603__dustin_davis__typing" : {
+      "ui_id" : "audio22",
+      "id" : "399603__dustin_davis__typing",
+      "location": "assets/399603__dustin_davis__typing.mp3",
+      "tag" : [ "typing", "keyboard" ],
+      "state":"idle",
+      "volume":1.0
+    },
+
+    "585463__guiller1220__20-crispetas_s" : {
+      "ui_id" : "audio23",
+      "id" : "585463__guiller1220__20-crispetas_s",
+      "location": "assets/585463__guiller1220__20-crispetas_s.mp3",
+      "tag" : [ "popcorn" ],
+      "state":"idle",
+      "volume":1.0
+    },
+
+    "551997__legnalegna55__eating-sound-asmr-crunchy-sound" : {
+      "ui_id" : "audio24",
+      "id" : "551997__legnalegna55__eating-sound-asmr-crunchy-sound",
+      "location": "assets/551997__legnalegna55__eating-sound-asmr-crunchy-sound.mp3",
+      "tag" : [ "asmr", "eating", "crunchy" ],
+      "state":"idle",
+      "volume":1.0
+    },
+
+    "707733__lizelle__eating-chips" : {
+      "ui_id" : "audio25",
+      "id" : "707733__lizelle__eating-chips",
+      "location": "assets/707733__lizelle__eating-chips.mp3",
+      "tag" : [ "asmr", "eating", "chips" ],
+      "state":"idle",
+      "volume":1.0
+    },
+
+    "564037__siteflight__drink-slurping-sound-from-a-cup" : {
+      "ui_id" : "audio26",
+      "id" : "564037__siteflight__drink-slurping-sound-from-a-cup",
+      "location": "assets/564037__siteflight__drink-slurping-sound-from-a-cup.mp3",
+      "tag" : [ "asmr", "coffee", "slurp" ],
+      "state":"idle",
+      "volume":1.0
+    },
+
+    "688692__digitalartsma__drawing-on-paper-with-coal" : {
+      "ui_id" : "audio27",
+      "id" : "688692__digitalartsma__drawing-on-paper-with-coal",
+      "location": "assets/688692__digitalartsma__drawing-on-paper-with-coal.mp3",
+      "tag" : [ "asmr", "drawing", "coal" ],
+      "state":"idle",
+      "volume":1.0
     }
+
 
   },
 
@@ -261,7 +327,7 @@ var noixer_info = {
       "value" : [
         { "id": "155940__ali-k__small-waterfall-pentalofos-salonika-21-33-30-04", "volume" : 0.25 },
         { "id": "32655__greysound__frogsandcrickets-excerptb-jma-24bit-48k", "volume" : 0.10 },
-        { "id": "525052__smand__wind-chime-small.mp3", "volume" : 0.20 },
+        { "id": "525052__smand__wind-chime-small", "volume" : 0.20 },
         { "id": "521549__buddhassoundofsilence__singing-bowl-deep-sound", "volume" : 0.40 },
         { "id": "273643__sanctuarymuch__ethereal-voices", "volume" : 0.5 }
       ]
@@ -292,7 +358,7 @@ var noixer_info = {
       "value" : [
         { "id": "156049__ali-k__spring-night-rain2-evosmos-salonika-03-15-15-05", "volume" : 0.4 },
         { "id": "197804__7778__indoor-fish-tank-without-bubble-strips-ambiance", "volume" : 1.0 },
-        { "id": "525052__smand__wind-chime-small.mp3", "volume" : 0.10 },
+        { "id": "525052__smand__wind-chime-small", "volume" : 0.10 },
         { "id": "252645__yetcop__cat-purr-gato-ronroneando", "volume" : 0.75 },
         { "id": "234458__theonlycanvas__dryer", "volume" : 0.25 }
       ]
